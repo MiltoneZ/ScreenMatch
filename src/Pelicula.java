@@ -1,4 +1,4 @@
-public class Peliculas {
+public class Pelicula {
     String nombre;
     int fechaDeLanzamiento;
     int duracionEnMinutos;
