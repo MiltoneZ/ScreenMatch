@@ -1,8 +1,10 @@
+import com.aluracursos.screenmatch.calculos.CalculadoraDeTiempo;
 import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 
 public class Principal {
     public static void main(String[] args) {
+
         // A la clase com.aluracursos.screenmatch.modelos.Pelicula se crea una sub-clase que sera miPelicula.
         // La cual se le agregara los valores siguientes:
         Pelicula miPelicula = new Pelicula();
@@ -11,6 +13,7 @@ public class Principal {
         miPelicula.setFechaDeLanzamiento(2021);
         miPelicula.setDuracionEnMinutos(120);
         miPelicula.setIncluidoEnElPlan(true);
+
         // Utiliza las variables determinadas en la clase com.aluracursos.screenmatch.modelos.Pelicula.
         // Dentro de esta se presentan con los valores asignados dentro de esta clase.
         miPelicula.muestraFichaTecnica();
@@ -27,11 +30,15 @@ public class Principal {
         casaDragon.muestraFichaTecnica();
         System.out.println(casaDragon.getDuracionEnMinutos());
 
-//        Pelicula otraPelicula = new Pelicula();
-//
-//        otraPelicula.nombre = "Matrix";
-//        otraPelicula.fechaDeLanzamiento = 1998;
-//        otraPelicula.duracionEnMinutos = 180;
-//        otraPelicula.muestraFichaTecnica();
+        Pelicula otraPelicula = new Pelicula();
+        otraPelicula.setNombre("Matrix");
+        otraPelicula.setFechaDeLanzamiento(1999);
+        otraPelicula.setDuracionEnMinutos(180);
+
+        CalculadoraDeTiempo calculadora = new CalculadoraDeTiempo();
+        calculadora.incluye(miPelicula);
+        calculadora.incluye(casaDragon);
+        calculadora.incluye(otraPelicula);
+        System.out.println("Tiempo necesario para ver los titulos: " + calculadora.getTiempoTotal() + " Minutos");
     }
 }
