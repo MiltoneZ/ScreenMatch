@@ -1,8 +1,13 @@
 import com.aluracursos.screenmatch.calculos.CalculadoraDeTiempo;
+import com.aluracursos.screenmatch.calculos.FiltroRecomendacion;
+import com.aluracursos.screenmatch.modelos.Episodio;
 import com.aluracursos.screenmatch.modelos.Pelicula;
 import com.aluracursos.screenmatch.modelos.Serie;
 
 public class Principal {
+
+    private static Episodio episodio;
+
     public static void main(String[] args) {
 
         // A la clase com.aluracursos.screenmatch.modelos.Pelicula se crea una sub-clase que sera miPelicula.
@@ -40,5 +45,16 @@ public class Principal {
         calculadora.incluye(casaDragon);
         calculadora.incluye(otraPelicula);
         System.out.println("Tiempo necesario para ver los titulos: " + calculadora.getTiempoTotal() + " Minutos");
+
+        FiltroRecomendacion filtroRecomendacion = new FiltroRecomendacion();
+        filtroRecomendacion.filtra(miPelicula);
+
+        episodio = new Episodio();
+        episodio.setNumero(1);
+        episodio.setNombre("La casa Targaryen");
+        episodio.setSerie(casaDragon);
+        episodio.setTotalVisualisaciones(50);
+
+        filtroRecomendacion.filtra(episodio);
     }
 }
